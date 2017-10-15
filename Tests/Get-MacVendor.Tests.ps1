@@ -1,5 +1,5 @@
 $PSVersion = $PSVersionTable.PSVersion.Major
-. $PSScriptRoot\Get-MacVendor.ps1 -Force
+. ..\Get-MacVendor\Get-MacVendor.ps1
 
 
 
