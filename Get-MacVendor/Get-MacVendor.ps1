@@ -1,4 +1,38 @@
-﻿function Get-MacVendor {
+
+<#PSScriptInfo
+
+.VERSION 1.0
+
+.GUID 7d924db7-3693-4338-9859-36030c5cc1b0
+
+.AUTHOR Pez
+
+.COMPANYNAME 
+
+.COPYRIGHT 
+
+.TAGS 
+
+.LICENSEURI 
+
+.PROJECTURI 
+
+.ICONURI 
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS 
+
+.EXTERNALSCRIPTDEPENDENCIES 
+
+.RELEASENOTES
+
+
+#>
+
+#Requires -Version 3
+
+function Get-MacVendor {
 <#
 .Synopsis
 This function resolves macadresses and returns the manufacturer

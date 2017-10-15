@@ -23,7 +23,7 @@ if(
 {
    Deploy Script {
     By PSGalleryScript {
-        FromSource "$ENV:BHProjectPath\Get-MacVendor\Get-MacVendor.ps1"
+        FromSource "$ProjectRoot\Get-MacVendor\Get-MacVendor.ps1"
         To PSGallery
         WithOptions @{
             ApiKey = $ENV:NugetApiKey

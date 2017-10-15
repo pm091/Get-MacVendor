@@ -56,7 +56,14 @@ Task Test -Depends Init  {
     "`n"
 }
 
-Task Deploy  {
+Task Build -Depends Test {
+    $lines
+
+    # Bump the script version
+    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1  -Force 
+}
+
+Task Deploy -Depends Test {
     $lines
 
     $Params = @{
