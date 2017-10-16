@@ -15,7 +15,7 @@
 
 .LICENSEURI 
 
-.PROJECTURI 
+.PROJECTURI https://github.com/pm091/Get-MacVendor
 
 .ICONURI 
 
