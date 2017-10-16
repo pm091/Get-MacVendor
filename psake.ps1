@@ -62,7 +62,7 @@ Task Build -Depends Test {
     # Bump the script version
     $env:APPVEYOR_BUILD_VERSION
 
-    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1 -Version $env:APPVEYOR_BUILD_VERSION -Author "PM091" -Description "Get-MacVendor" 
+    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1 -Version $env:APPVEYOR_BUILD_VERSION -Author "PM091" -Description "Get-MacVendor"-Guid (New-Guid) -Force
 }
 
 Task Deploy -Depends Build {
