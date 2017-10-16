@@ -1,5 +1,5 @@
 $PSVersion = $PSVersionTable.PSVersion.Major
-. ..\Get-MacVendor\Get-MacVendor.ps1
+Import-Module ..\Get-MacVendor\Get-MacVendor.ps1
 
 
 
