@@ -1,5 +1,5 @@
 $PSVersion = $PSVersionTable.PSVersion.Major
-Import-Module ..\Get-MacVendor\Get-MacVendor.ps1
+. $env:BHProjectPath\Get-MacVendor\Get-MacVendor.ps1
 
 
 
