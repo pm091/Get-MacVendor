@@ -26,6 +26,9 @@ if(
         To PSGallery
         WithOptions @{
             ApiKey = $ENV:NugetApiKey
+            Version =  $env:APPVEYOR_BUILD_VERSION
+            Author = "PM091"
+            Description = "Get-MacVendor"
         }
     }
 }
