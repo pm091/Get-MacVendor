@@ -60,7 +60,7 @@ Task Build -Depends Test {
     $lines
 
     # Bump the script version
-    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1 -Version $env:APPVEYOR_BUILD_VERSION -Author "PM091" -Description "Get-MacVendor"  -Force 
+    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1 -Version $env:APPVEYOR_BUILD_VERSION -Author "PM091" -Description "Get-MacVendor" 
 }
 
 Task Deploy -Depends Build {
