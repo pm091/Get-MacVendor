@@ -26,7 +26,7 @@ if(
         To PSGallery
         WithOptions @{
             ApiKey = $ENV:NugetApiKey
-            Version = $env:APPVEYOR_BUILD_VERSION
+            VERSION = $env:APPVEYOR_BUILD_VERSION
         }
     }
 }

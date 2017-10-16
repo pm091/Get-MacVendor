@@ -61,6 +61,8 @@ Task Test -Depends Init  {
 Task Deploy -Depends Test {
     $lines
 
+    $env:APPVEYOR_BUILD_VERSION
+
     $Params = @{
         Path = $ProjectRoot
         Force = $true
