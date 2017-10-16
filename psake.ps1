@@ -60,7 +60,7 @@ Task Build -Depends Test {
     $lines
 
     # Bump the script version
-    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1  -Force 
+    Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1 -Description "Get-MacVendor"  -Force 
 }
 
 Task Deploy -Depends Build {
