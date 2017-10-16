@@ -1,9 +1,9 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.1
+.VERSION 1.0.2
 
-.GUID 7cc7b100-be50-48c8-b740-5d374ba39bc1
+.GUID df1fcd14-ea12-42e1-b448-1c465b671d66
 
 .AUTHOR PM091
 
@@ -28,9 +28,7 @@
 .RELEASENOTES
 
 
-#> 
-
-
+#>
 
 <# 
 
@@ -38,9 +36,7 @@
  Get-MacVendor 
 
 #> 
-
 Param()
-
 
 #Requires -Version 3
 
@@ -88,4 +84,3 @@ Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select Cli
          end{}
     
 }
-
