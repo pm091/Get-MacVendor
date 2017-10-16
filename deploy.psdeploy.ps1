@@ -27,6 +27,7 @@ if(
         To PSGallery
         WithOptions @{
             ApiKey = $ENV:NugetApiKey
+            Description = "Get-MacVendor"
         }
     }
 }
