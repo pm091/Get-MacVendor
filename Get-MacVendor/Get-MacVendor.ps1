@@ -3,7 +3,7 @@
 
 .VERSION 1.0.0
 
-.GUID 38b82573-d2b9-4a33-ae15-cecf804f910d
+.GUID 7cc7b100-be50-48c8-b740-5d374ba39bc1
 
 .AUTHOR PM091
 
@@ -33,44 +33,12 @@
 <# 
 
 .DESCRIPTION 
- Get-Macvendor 
+ Get-MacVendor 
 
 #> 
 
 Param()
 
-
-
-<#PSScriptInfo
-
-.VERSION 1.0
-
-.GUID 7d924db7-3693-4338-9859-36030c5cc1b0
-
-.AUTHOR Pez
-
-.COMPANYNAME 
-
-.COPYRIGHT 
-
-.TAGS 
-
-.LICENSEURI 
-
-.PROJECTURI https://github.com/pm091/Get-MacVendor
-
-.ICONURI 
-
-.EXTERNALMODULEDEPENDENCIES 
-
-.REQUIREDSCRIPTS 
-
-.EXTERNALSCRIPTDEPENDENCIES 
-
-.RELEASENOTES
-
-
-#>
 
 #Requires -Version 3
 
