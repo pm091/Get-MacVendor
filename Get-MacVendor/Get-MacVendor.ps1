@@ -1,9 +1,9 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.2
+.VERSION 1.0.1
 
-.GUID df1fcd14-ea12-42e1-b448-1c465b671d66
+.GUID cb92c06b-af2f-4e93-b3d6-4db8710ce0a5
 
 .AUTHOR PM091
 
@@ -11,11 +11,11 @@
 
 .COPYRIGHT 
 
-.TAGS 
+.TAGS PowerShell MacAddress
 
 .LICENSEURI 
 
-.PROJECTURI 
+.PROJECTURI https://github.com/pm091/Get-MacVendor
 
 .ICONURI 
 
@@ -36,9 +36,10 @@
  Get-MacVendor 
 
 #> 
+
 Param()
 
-#Requires -Version 3
+
 
 function Get-MacVendor {
 <#

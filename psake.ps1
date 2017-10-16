@@ -62,10 +62,6 @@ Task Build -Depends Test {
     # Bump the script version
     $env:APPVEYOR_BUILD_VERSION
 
-    $TestScript = Test-ScriptFileInfo -Path "$ProjectRoot\Get-MacVendor\Get-MacVendor.ps1"
-
-    $TestScript
-
     $Splatting = @{
     Path = "$ProjectRoot\Get-MacVendor\Get-MacVendor.ps1"
     Version = "$env:APPVEYOR_BUILD_VERSION"
