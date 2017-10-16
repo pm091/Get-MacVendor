@@ -56,26 +56,9 @@ Task Test -Depends Init  {
     "`n"
 }
 
-Task Build -Depends Test {
-    $lines
 
-    # Bump the script version
-    $env:APPVEYOR_BUILD_VERSION
 
-    $Splatting = @{
-    Path = "$ProjectRoot\Get-MacVendor\Get-MacVendor.ps1"
-    Version = "$env:APPVEYOR_BUILD_VERSION"
-    Author = 'PM091'
-    Description = 'Get-MacVendor'
-    Tags = @('PowerShell','MacAddress')
-    ProjectURI = 'https://github.com/pm091/Get-MacVendor'
-    Force = $true
-}
-Update-ScriptFileInfo @Splatting
-
-}
-
-Task Deploy -Depends Build {
+Task Deploy -Depends Test {
     $lines
 
     $Params = @{
