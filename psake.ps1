@@ -63,7 +63,7 @@ Task Build -Depends Test {
     Update-ScriptFileInfo -Path $ProjectRoot\Get-MacVendor\Get-MacVendor.ps1  -Force 
 }
 
-Task Deploy -Depends Test {
+Task Deploy -Depends Build {
     $lines
 
     $Params = @{

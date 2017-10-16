@@ -27,9 +27,6 @@ if(
         To PSGallery
         WithOptions @{
             ApiKey = $ENV:NugetApiKey
-            Version = $ENV:Version
-            Author = "PM091"
-            Description = "Find MacVnedors With Powershell"
         }
     }
 }
