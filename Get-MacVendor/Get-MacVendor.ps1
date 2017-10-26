@@ -1,11 +1,11 @@
 function Get-MacVendor {
 <#
 .Synopsis
-This function resolves macadresses and returns the manufacturer
+Resolve MacAddresses To Vendors
 .Description
-This function queries macvendors api with supplied mac adderess and will return manufacturer information if a match is found
+This Function Queries The MacVendors API With Supplied MacAdderess And Returns Manufacturer Information If A Match Is Found
 .Parameter MacAddress 
-This Parameter supports multiple MacAddresses to be supplied
+MacAddress To Be Resolved
 .Example
 Get-MacVendor 
 .Example
