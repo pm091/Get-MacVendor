@@ -35,7 +35,7 @@ Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select Cli
 				}
 			}
 		catch{
-				Write-Warning -Message "$input, $_"
+				Write-Warning -Message "$Mac, $_"
 			}
         }
    }
