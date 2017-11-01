@@ -11,9 +11,7 @@ Get-MacVendor
 .Example
 Get-MacVendor -MacAddress 00:00:00:00:00:00
 .Example
-Get-NetAdapter | select MacAddress -ExpandProperty MacAddress | Get-MacVendor
-.Example
-Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select ClientId -ExpandProperty ClientId | Get-MacVendor
+Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -ExpandProperty ClientId | Get-MacVendor
 #>
 		[CmdletBinding()]
 		param(
