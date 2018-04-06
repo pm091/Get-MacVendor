@@ -23,8 +23,8 @@ Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -Ex
         process{
 		foreach($Mac in $MacAddress){
 		try{
-				Write-Verbose 'Sending Request to http://api.macvendors.com'
-				Invoke-RestMethod -Method Get -Uri http://api.macvendors.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
+				Write-Verbose 'Sending Request to https://mac-to-vendor.herokuapp.com/'
+				Invoke-RestMethod -Method Get -Uri https://mac-to-vendor.herokuapp.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
 
 					[pscustomobject]@{
 						Vendor = $_
