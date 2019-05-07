@@ -7,8 +7,6 @@ This Function Queries The MacVendors API With Supplied MacAdderess And Returns M
 .Parameter MacAddress 
 MacAddress To Be Resolved
 .Example
-Get-MacVendor 
-.Example
 Get-MacVendor -MacAddress 00:00:00:00:00:00
 .Example
 Warning ! ! This may error due to api limits
