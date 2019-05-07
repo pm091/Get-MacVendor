@@ -12,12 +12,14 @@ Get-MacVendor
 Get-MacVendor -MacAddress 00:00:00:00:00:00
 .Example
 Warning ! ! This may error due to api limits
-Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -ExpandProperty ClientId | Get-MacVendor
+Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -ExpandProperty ClientId | Foreach-Object {Get-MacVendor -MacAddress $_; sleep 1}
+
+Get-NetAdapter | select -ExpandProperty MacAddress | Foreach-Object {Get-MacVendor -MacAddress $_; sleep 1}
 #>
     [CmdletBinding()]
     param(
         [Parameter (Mandatory = $true,
-            ValueFromPipeline = $true)]
+            ValueFromPipeline = $false)]
         [ValidatePattern("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$")]
         [string[]]$MacAddress
     )
@@ -25,19 +27,18 @@ Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -Ex
         $CurrentMac = 0
     }
     process {	
+        $CurrentMac++
+        Write-Progress -Activity "Resoving MacAddress : $Mac" -Status "$CurrentMac of $($MacAddress.Count)" -PercentComplete (($CurrentMac / $MacAddress.Count) * 100)
         foreach ($Mac in $MacAddress) {
             try {
-                $CurrentMac++
-                Write-Progress -Activity "Resoving MacAddress : $Mac" -Status "$CurrentMac / $($MacAddress.Count)" -PercentComplete $($CurrentMac / $MacAddress.Count * 100)
                 Write-Verbose 'Sending Request to https://api.macvendors.com/'
                 Invoke-RestMethod -Method Get -Uri https://api.macvendors.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
-
                     [pscustomobject]@{
                         Vendor     = $_
                         MacAddress = $Mac
                     }
                 }
-                Start-Sleep -Milliseconds 500
+                Start-Sleep -Milliseconds 1000
             }
             catch {
                 Write-Warning -Message "$Mac, $_"
