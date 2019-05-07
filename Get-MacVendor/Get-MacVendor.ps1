@@ -1,5 +1,5 @@
 function Get-MacVendor {
-<#
+    <#
 .Synopsis
 Resolve MacAddresses To Vendors
 .Description
@@ -11,32 +11,39 @@ Get-MacVendor
 .Example
 Get-MacVendor -MacAddress 00:00:00:00:00:00
 .Example
+Warning ! ! This may error due to api limits
 Get-DhcpServerv4Lease -ComputerName $ComputerName -ScopeId $ScopeId | Select -ExpandProperty ClientId | Get-MacVendor
 #>
-		[CmdletBinding()]
-		param(
-		[Parameter (Mandatory=$true,
-                    ValueFromPipeline=$true)]
-		[ValidatePattern("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$")]
-		[string[]]$MacAddress
-		)
-        process{
-		foreach($Mac in $MacAddress){
-		try{
-				Write-Verbose 'Sending Request to https://mac-to-vendor.herokuapp.com/'
-				Invoke-RestMethod -Method Get -Uri https://mac-to-vendor.herokuapp.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
+    [CmdletBinding()]
+    param(
+        [Parameter (Mandatory = $true,
+            ValueFromPipeline = $true)]
+        [ValidatePattern("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$")]
+        [string[]]$MacAddress
+    )
+    begin {
+        $CurrentMac = 0
+    }
+    process {	
+        foreach ($Mac in $MacAddress) {
+            try {
+                $CurrentMac++
+                Write-Progress -Activity "Resoving MacAddress : $Mac" -Status "$CurrentMac / $($MacAddress.Count)" -PercentComplete $($CurrentMac / $MacAddress.Count * 100)
+                Write-Verbose 'Sending Request to https://api.macvendors.com/'
+                Invoke-RestMethod -Method Get -Uri https://api.macvendors.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
 
-					[pscustomobject]@{
-						Vendor = $_
-						MacAddress = $Mac
-					}
-				}
-			}
-		catch{
-				Write-Warning -Message "$Mac, $_"
-			}
+                    [pscustomobject]@{
+                        Vendor     = $_
+                        MacAddress = $Mac
+                    }
+                }
+                Start-Sleep -Milliseconds 500
+            }
+            catch {
+                Write-Warning -Message "$Mac, $_"
+            }
         }
-   }
-         end{}
+    }
+    end { }
     
 }
