@@ -25,9 +25,9 @@ Get-NetAdapter | select -ExpandProperty MacAddress | Foreach-Object {Get-MacVend
         $CurrentMac = 0
     }
     process {	
-        $CurrentMac++
-        Write-Progress -Activity "Resoving MacAddress : $Mac" -Status "$CurrentMac of $($MacAddress.Count)" -PercentComplete (($CurrentMac / $MacAddress.Count) * 100)
         foreach ($Mac in $MacAddress) {
+            $CurrentMac++
+            Write-Progress -Activity "Resoving MacAddress : $Mac" -Status "$CurrentMac of $($MacAddress.Count)" -PercentComplete (($CurrentMac / $MacAddress.Count) * 100)
             try {
                 Write-Verbose 'Sending Request to https://api.macvendors.com/'
                 Invoke-RestMethod -Method Get -Uri https://api.macvendors.com/$Mac -ErrorAction SilentlyContinue | Foreach-object {
