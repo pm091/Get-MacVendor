@@ -1,5 +1,5 @@
 function Get-MacVendor {
-    <#
+<#
 .Synopsis
 Resolve MacAddresses To Vendors
 .Description
